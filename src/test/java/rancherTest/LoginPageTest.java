@@ -37,7 +37,7 @@ public class LoginPageTest extends BaseCommon{
     }
 
     @Test
-    public void loginUserTest(){
+    public void loginUserTest() throws InterruptedException {
         log.info("entering dkjhdsf ++++ ++++++++++++++++++");
 
         homePage = loginPage.loginUser(properties.getProperty("rancherusername"),properties.getProperty("rancherpassword"));

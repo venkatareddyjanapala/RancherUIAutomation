@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.util.Properties;
 
 public class BaseCommon {
@@ -19,8 +20,8 @@ public class BaseCommon {
     public BaseCommon(){
         try{
             properties = new Properties();
-            FileInputStream ip = new FileInputStream("/Users/venkatareddy/IdeaProjects/RancherUIAutomation/src/main/java/config/config.properties");
-            properties.load(ip);
+          FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/config/config.properties");
+            properties.load(fis);
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
@@ -30,17 +31,17 @@ public class BaseCommon {
         }
     }
 
-    public static void initialization(){
+    public static void initialization()  {
         String browserName = properties.getProperty("browser");
         if(browserName.equals("chrome")){
-            log.info("entered in chrome");
-            System.setProperty("webdriver.chrome.driver","/Users/venkatareddy/IdeaProjects/" +
-                    "/RancherUIAutomation/src/main/resources/chromedriver");
+            log.info("Browser Name: Chrome");
+            // ClassLoader.loadClass("chromedriver");
+            System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/drivers/chromedriver");
             driver = new ChromeDriver();
         }
         else if(browserName.equals("FF")){
-            System.setProperty("webdriver.gecko.driver","/Users/venkatareddy/IdeaProjects/" +
-                    "/RancherUIAutomation/src/main/resources/geckodriver");
+            log.info("Browser Name: FireFox");
+            System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/drivers/geckodriver");
             driver = new FirefoxDriver();
         }
 //

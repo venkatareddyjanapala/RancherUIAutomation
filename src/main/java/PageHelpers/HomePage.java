@@ -1,4 +1,4 @@
-package rancher;
+package PageHelpers;
 
 import base.BaseCommon;
 import org.openqa.selenium.By;

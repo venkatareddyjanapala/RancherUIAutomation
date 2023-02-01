@@ -1,8 +1,8 @@
-package rancherTest;
+package LoginTests;
 
 import base.BaseCommon;
-import rancher.HomePage;
-import rancher.LoginPage;
+import PageHelpers.HomePage;
+import PageHelpers.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

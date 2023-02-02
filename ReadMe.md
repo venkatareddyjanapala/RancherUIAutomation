@@ -15,5 +15,5 @@ Added support for both Chrome & Firefox drivers, drivers are placed under src->m
 <h2>Run Configuration:</h2>
 To run entire suite:
 <code>
-<PATH>/RancherAPIAutomation/suitefiles/testng.xml -ea -Denv.type=QA
+mvn test
 </code>

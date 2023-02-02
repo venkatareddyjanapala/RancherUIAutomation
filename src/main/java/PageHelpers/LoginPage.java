@@ -39,8 +39,8 @@ public class LoginPage extends BaseCommon {
     }
 
     public HomePage loginUser(String usern, String pwd) throws InterruptedException {
-        commonWaits.setExplicitWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
-                "//input[@class = \"form-control login-user ember-view ember-text-field\"]")));
+      commonWaits.setExplicitWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+              "//input[@class = \"form-control login-user ember-view ember-text-field\"]")));
         username.sendKeys(usern);
         password.sendKeys(pwd);
         loginButton.click();

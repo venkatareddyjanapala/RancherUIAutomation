@@ -1,15 +1,13 @@
 package LoginTests;
 
-import base.BaseCommon;
 import PageHelpers.HomePage;
 import PageHelpers.LoginPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.log4testng.Logger;
 
-public class LoginPageTest extends BaseCommon{
+public class LoginPageTest extends TestBase{
 
     LoginPage loginPage;
     HomePage homePage;
@@ -22,7 +20,6 @@ public class LoginPageTest extends BaseCommon{
 
     @BeforeClass
     public void setup(){
-        initialization();
         loginPage = new LoginPage();
         log.info("Running the class:" + this.getClass().getSimpleName());
     }
@@ -36,11 +33,7 @@ public class LoginPageTest extends BaseCommon{
     @Test
     public void loginUserTest() throws InterruptedException {
         log.info("Running the test:loginUserTest");
-        homePage = loginPage.loginUser(properties.getProperty("rancherusername"),properties.getProperty("rancherpassword"));
+        homePage = loginPage.loginUser(baseCommon.getConfig("rancherusername"),baseCommon.getConfig("rancherpassword"));
         Assert.assertTrue(homePage.validateHomePageLogo());
-    }
-    @AfterClass
-    public void tearDown(){
-        driver.quit();
     }
 }

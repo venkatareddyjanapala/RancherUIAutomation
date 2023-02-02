@@ -30,7 +30,7 @@ public class BaseCommon {
         }
     }
 
-    public static void initialization()  {
+    public  void initialization()  {
         String browserName = properties.getProperty("browser");
         if(browserName.equals("chrome")){
             log.info("Browser Name: Chrome");
@@ -43,10 +43,9 @@ public class BaseCommon {
             System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/drivers/geckodriver");
             driver = new FirefoxDriver();
         }
-//
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().pageLoadTimeout(UtilCommon.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-//        driver.manage().timeouts().implicitlyWait(UtilCommon.IMPLICIT_WAIT, TimeUnit.SECONDS);
         driver.get(properties.getProperty("rancherurl"));
+    }
+    public String getConfig(String key){
+        return properties.getProperty(key);
     }
 }

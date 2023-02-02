@@ -15,6 +15,8 @@ public class BaseCommon {
     public static WebDriver driver;
     public static Properties properties;
     static Logger log = Logger.getLogger(BaseCommon.class);
+    private static final  String CHROME_DRIVER_PATH=BaseCommon.class.getClassLoader().getResource("chromedriver").getPath();
+    private static final  String FIREFOX_DRIVER_PATH=BaseCommon.class.getClassLoader().getResource("geckodriver").getPath();
 
     public BaseCommon(){
         try{
@@ -34,13 +36,12 @@ public class BaseCommon {
         String browserName = properties.getProperty("browser");
         if(browserName.equals("chrome")){
             log.info("Browser Name: Chrome");
-            // ClassLoader.loadClass("chromedriver");
-            System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/drivers/chromedriver");
+            System.setProperty("webdriver.chrome.driver",CHROME_DRIVER_PATH);
             driver = new ChromeDriver();
         }
         else if(browserName.equals("FF")){
             log.info("Browser Name: FireFox");
-            System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/drivers/geckodriver");
+            System.setProperty("webdriver.firefox.driver",FIREFOX_DRIVER_PATH);
             driver = new FirefoxDriver();
         }
         driver.get(properties.getProperty("rancherurl"));

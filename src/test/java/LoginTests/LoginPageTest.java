@@ -24,26 +24,21 @@ public class LoginPageTest extends BaseCommon{
     public void setup(){
         initialization();
         loginPage = new LoginPage();
-        log.info("entering dkjhdsf ++++ ++++++++++++++++++");
+        log.info("Running the class:" + this.getClass().getSimpleName());
     }
 
     @Test
-    public void RancherPageTest() throws InterruptedException {
-        log.info("entering dkjhdsf ++++ ++++++++++++++++++");
-
+    public void RancherPageTest() {
+        log.info("Running the test:RancherPageTest");
         Assert.assertEquals(loginPage.validateLoginPageTitle(),rancherPageTitle);
-       // Thread.sleep(2000);
-      //  Assert.assertTrue(loginPage.checkRancherLogo());
     }
 
     @Test
     public void loginUserTest() throws InterruptedException {
-        log.info("entering dkjhdsf ++++ ++++++++++++++++++");
-
+        log.info("Running the test:loginUserTest");
         homePage = loginPage.loginUser(properties.getProperty("rancherusername"),properties.getProperty("rancherpassword"));
         Assert.assertTrue(homePage.validateHomePageLogo());
     }
-
     @AfterClass
     public void tearDown(){
         driver.quit();

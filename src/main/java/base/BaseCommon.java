@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.DriverManager;
 import java.util.Properties;
 
 public class BaseCommon {

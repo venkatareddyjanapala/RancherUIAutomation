@@ -16,5 +16,5 @@
 <h2>Run Configuration:</h2>
 To run entire suite:
 <code>
-mvn clean test -Dmaven.test.skip=true 
+mvn clean test -Dmaven.test.skip=false 
 </code>
